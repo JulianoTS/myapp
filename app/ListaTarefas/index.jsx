@@ -1,64 +1,105 @@
-import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const tasks = [
-  { id: '1', title: 'Batata', completed: true },
-  { id: '2', title: 'Arroz', completed: false },
-  { id: '3', title: 'Leite', completed: true },
-  { id: '4', title: 'Banana', completed: false },
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'Estudar',
+    completed: false,
+    date: '2024-08-13', 
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Comer',
+    completed: false,
+    date: '2024-08-14', 
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Treinar',
+    completed: false,
+    date: '2024-08-15', 
+  },
+  {
+    id: '58794a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Dormir',
+    completed: false,
+    date: '2024-08-15', 
+  },
 ];
 
-const TaskItem = ({ title, completed }) => {
-  return (
-    <View style={styles.itemContainer}>
-      <Text style={[styles.itemText, completed && styles.completedText]}>
-        {title}
-      </Text>
-    </View>
-  );
-};
+const Item = ({ item, onPress, backgroundColor, textColor, textDecoration }) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, { backgroundColor }]}>
+    <Text style={[styles.title, { color: textColor, textDecorationLine: textDecoration }]}>{item.title}</Text>
+  </TouchableOpacity>
+);
 
-const TaskList = () => {
+const App = () => {
+  const [tasks, setTasks] = useState(DATA);
+
+  useEffect(() => {
+    const markOldTasksAsCompleted = () => {
+      const today = new Date().toISOString().split('T')[0]; 
+      setTasks(tasks.map(task =>
+        new Date(task.date) < new Date(today)
+          ? { ...task, completed: true }
+          : task
+      ));
+    };
+
+    markOldTasksAsCompleted();
+  }, []);
+
+  const toggleCompletion = (id) => {
+    setTasks(tasks.map(task =>
+      task.id === id
+        ? { ...task, completed: !task.completed }
+        : task
+    ));
+  };
+
+  const renderItem = ({ item }) => {
+    const backgroundColor = item.completed ? '#ffb5a7' : '#fcd5ce';
+    const color = item.completed ? 'black' : 'black';
+    const textDecoration = item.completed ? 'line-through' : 'none';
+
+    return (
+      <Item
+        item={item}
+        onPress={() => toggleCompletion(item.id)}
+        backgroundColor={backgroundColor}
+        textColor={color}
+        textDecoration={textDecoration}
+      />
+    );
+  };
+
   return (
-    <FlatList
-      data={tasks}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => <TaskItem {...item} />}
-      contentContainerStyle={styles.listContainer}
-    />
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={tasks}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        extraData={tasks}
+      />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  listContainer: {
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
     padding: 20,
-    backgroundColor: '#f4f4f4',
-  },
-  itemContainer: {
-    padding: 15,
-    backgroundColor: '#fff',
-    marginBottom: 10,
+    marginVertical: 8,
+    marginHorizontal: 16,
     borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
-  itemText: {
-    fontSize: 18,
-    color: '#333',
-  },
-  completedText: {
-    textDecorationLine: 'line-through',
-    color: '#bbb',
+  title: {
+    fontSize: 24,
   },
 });
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <TaskList />
-    </View>
-  );
-}
+export default App;
