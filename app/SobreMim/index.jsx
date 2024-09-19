@@ -1,13 +1,13 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, ScrollView} from 'react-native';
 import {Link} from 'expo-router'
 
 export default function Page() {
     return(
-        <View style={styles.body}>
+        <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.titulo}>Sobre Mim</Text>
             </View>
-            <View style={styles.container1}>
+            <View style={styles.section1}>
             <Image
             style={styles.foto}
             source={require('./img/eu.jpg')}
@@ -15,18 +15,19 @@ export default function Page() {
             <Text style={styles.subtitulo}>Bem-vindo(a) ao meu APP</Text>
             <Text style={styles.texto}>Eu curto muito ir para a praia, relaxar ao sol e sentir a brisa do mar. Quando estou com energia, gosto de jogar futebol, me divertir e ficar com a galera. E, para fechar o dia, adoro ver um bom filme e mergulhar em histórias legais. Veja meus filmes e praias favoritos abaixo!</Text>
             </View>
-            <View style={styles.container2}>
+            <View style={styles.section2}>
             <View>
-            <Link style={styles.botao} href='/Filmes'>Confira meus filmes favoitos!</Link>
-            <Link style={styles.botao} href='/Praias'>Confira minhas praias favoritas!</Link>
+            <Link style={styles.botao} href='/SobreMim/Filmes'>Confira meus filmes favoitos!</Link>
+            <Link style={styles.botao} href='/SobreMim/Praias'>Confira minhas praias favoritas!</Link>
             </View>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
-    body: {
+    container: {
+        flex: 1,
         backgroundColor: '#f0f0f0', 
     },
     header: {
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
     },
-    container1: {
+    section1: {
         alignItems: 'center',
         marginBottom: '2%',
     },
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
         fontSize: '100%',
         width: 600,
     },
-    container2: {
+    section2: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',

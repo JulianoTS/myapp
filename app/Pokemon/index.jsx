@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#ffddd2',
+        backgroundColor: '#f0f0f0',
       },
       header: {
         fontSize: 24,
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
       text: {
         fontSize: 18,
         marginBottom: 10,
-        color: '#C78B82',
       },
 
 });

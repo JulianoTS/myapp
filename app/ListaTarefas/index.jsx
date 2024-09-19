@@ -59,7 +59,7 @@ const App = () => {
   };
 
   const renderItem = ({ item }) => {
-    const backgroundColor = item.completed ? '#ffb5a7' : '#fcd5ce';
+    const backgroundColor = item.completed ? 'gray' : '#007bff'; 
     const color = item.completed ? 'black' : 'black';
     const textDecoration = item.completed ? 'line-through' : 'none';
 

@@ -68,7 +68,7 @@ export default SignUp = () => {
 const styles = StyleSheet.create({
     header:{
         height: 65,
-        backgroundColor:'lightgray',
+        backgroundColor: '#007bff',
         marginBottom: 30,
     },
     input:{
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         height: 40,
         marginBottom: 15,
         margin:'auto',
-        backgroundColor:'lightgray',
+        backgroundColor: '#007bff',
         borderRadius: 10,
         textAlign: 'center',
         fontSize: 15,

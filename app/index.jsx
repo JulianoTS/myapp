@@ -6,7 +6,7 @@ export default function Page() {
     return(
         <View style={styles.container}>
             <View>
-            <Link style={styles.botao} href='/SobreMim'>Sobra Mim</Link>
+            <Link style={styles.botao} href='/SobreMim'>Sobre Mim</Link>
             <Link style={styles.botao} href='/Banco'>Banco</Link>
             <Link style={styles.botao} href='/Cadastro'>Cadastro</Link>
             <Link style={styles.botao} href='/Calculadora'>Calculadora</Link>
