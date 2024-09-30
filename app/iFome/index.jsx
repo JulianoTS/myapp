@@ -59,6 +59,7 @@ const App = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#f0f0f0",
     },
     header: {
         marginBottom: 20,
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
         borderColor: '#000',
         borderRadius: 10,
         padding: 20,
+        backgroundColor: "white",
     },
     img: {
         width: 150,

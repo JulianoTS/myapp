@@ -1,13 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { Link } from 'expo-router';
 
-const Header = ({ link, header }) => {
+const Header = ({ header }) => {
     return (
         <View style={styles.container}>
-            <Link href={link}>
-                <Image style={styles.image} source={require('../assets/arrow.png')} />
-            </Link>
             <Text style={styles.text}>{header}</Text>
         </View>
     );
@@ -18,19 +14,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#007bff',
         flexDirection: 'row',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 15,
-        height: 50
-    },
-    image: {
-        width: 30,
-        height: 30,
+        height: 60,
     },
     text: {
-        fontSize: 20,
+        fontSize: '200%',
         fontWeight: 'bold',
-        color: '#fff',
+        color: 'white',
     },
 });
 

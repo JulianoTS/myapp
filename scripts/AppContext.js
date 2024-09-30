@@ -25,7 +25,14 @@ export const AppProvider = ({ children }) => {
                 "local": "Rei do Camarão",
                 "preco": 79.90,
                 "img": "https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2009/02/camarao_empanado.jpg"
-            }
+            },
+            {
+                "id": 4,
+                "nome": "Churrasco",
+                "local": "Churrasco do Betinho",
+                "preco": 59.90,
+                "img": "https://www.ogastronomo.com.br/upload/2051998133-churrasco-uma-paixao-nacional.jpg"
+            },
         ]
     );
 

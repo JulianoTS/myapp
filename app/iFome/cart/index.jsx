@@ -62,6 +62,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#f0f0f0",
   },
   list: {
     padding: 10
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     borderRadius: 10,
     marginBottom: 20,
+    backgroundColor: "white",
   },
   info: {
     fontSize: 21,
