@@ -10,6 +10,7 @@ export default function Page() {
             <Link style={styles.botao} href='/Banco'>Banco</Link>
             <Link style={styles.botao} href='/Cadastro'>Cadastro</Link>
             <Link style={styles.botao} href='/Calculadora'>Calculadora</Link>
+            <Link style={styles.botao} href='/iFome'>iFome</Link>
             <Link style={styles.botao} href='/ListaTarefas'>Lista de tarefas</Link>
             <Link style={styles.botao} href='/Pokemon'>Pokemon</Link>
             <Link style={styles.botao} href='/SplashScreen'>Splash Screen</Link>
