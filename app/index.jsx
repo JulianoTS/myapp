@@ -12,7 +12,8 @@ export default function Page() {
             <Link style={styles.botao} href='/Calculadora'>Calculadora</Link>
             <Link style={styles.botao} href='/Camera'>Camera</Link>
             <Link style={styles.botao} href='/iFome'>iFome</Link>
-            <Link style={styles.botao} href='/ListaTarefas'>Lista de tarefas</Link>
+            <Link style={styles.botao} href='/ListaTarefas'>Tarefas</Link>
+            <Link style={styles.botao} href='/Memorias'>Memórias</Link>
             <Link style={styles.botao} href='/Pokemon'>Pokemon</Link>
             <Link style={styles.botao} href='/SplashScreen'>Splash Screen</Link>
             </View>
